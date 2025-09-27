@@ -79,7 +79,7 @@ class ResourceBase {
         return out;
     }
 
-    static async load(fileName, opts = {}, clear = true) {
+    static async load(fileName, clear = true) {
         const ctor = this;
         ctor._ensureStore();
 
@@ -110,18 +110,6 @@ class ResourceBase {
         } catch {
             console.log(`[${ctor.name}] JSON parse error: ${fileName}`);
             return;
-        }
-
-        if (Array.isArray(root)) {
-            if (typeof opts.mapArrayToDict !== "function") {
-                console.log(`[${ctor.name}] Root is array. Provide mapArrayToDict to map to {id: obj}.`);
-                return;
-            }
-            root = opts.mapArrayToDict(root);
-            if (!root || typeof root !== "object") {
-                console.log(`[${ctor.name}] mapArrayToDict must return an object { [id]: obj }`);
-                return;
-            }
         }
 
         if (clear) ctor.items.clear();
