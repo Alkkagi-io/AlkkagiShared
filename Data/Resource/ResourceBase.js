@@ -4,40 +4,40 @@ class ResourceBase {
     constructor() {
         this.id = 0;
         this.name = "";
-        this._dict = {};
+        this.dict = {};
     }
 
     init(id, dict) {
         this.id = id;
-        this._dict = dict || {};
+        this.dict = dict || {};
         this.name = this.getDictValue("Name", "");
     }
 
     hasDict(key) {
-        return Object.prototype.hasOwnProperty.call(this._dict, key);
+        return Object.prototype.hasOwnProperty.call(this.dict, key);
     }
 
     getDictValue(key, defaultValue = "") {
-        return this._dict[key];
+        return this.dict[key];
     }
 
     getDictValueInt(key, defaultValue = 0) {
-        const n = parseToInteger(this._dict[key]);
+        const n = parseToInteger(this.dict[key]);
         return Number.isFinite(n) ? n : defaultValue;
     }
 
     getDictValueFloat(key, defaultValue = 0) {
-        const n = parseToFloat(this._dict[key]);
+        const n = parseToFloat(this.dict[key]);
         return Number.isFinite(n) ? n : defaultValue;
     }
 
     getDictValueBool(key, defaultValue = false) {
-        const b = parseToBoolean(this._dict[key]);
+        const b = parseToBoolean(this.dict[key]);
         return (b === undefined || b === null) ? defaultValue : Boolean(b);
     }
 
     getDictValueArray(key, defaultValue = []) {
-        const raw = this._dict[key];
+        const raw = this.dict[key];
         if (raw === undefined || raw === null) return defaultValue;
 
         if (Array.isArray(raw)) return raw;
