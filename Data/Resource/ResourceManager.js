@@ -13,7 +13,4 @@ class ResourceManager {
     }
 }
 
-const resourceManager = new ResourceManager();
-
-// singleton
-export default resourceManager;
+export { ResourceManager };
