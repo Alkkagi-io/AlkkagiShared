@@ -1,4 +1,4 @@
-import { parseToInteger, parseToFloat, parseToBoolean } from "../DataParseHelper.js";
+import { parseToInteger, parseToFloat, parseToBoolean } from "./DataParseHelper.js";
 
 class ResourceBase {
     constructor() {
