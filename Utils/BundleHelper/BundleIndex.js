@@ -1,6 +1,3 @@
-export * from './../../../AlkkagiShared/Data/Resource/DataParseHelper.js';
-export * from './../../../AlkkagiShared/Data/Resource/ResourceBase.js';
-export * from './../../../AlkkagiShared/Data/Resource/ResourceManager.js';
 export * from './../../../AlkkagiShared/modules/bufferhandle.js';
 export * from './../../../AlkkagiShared/modules/encodingutility.js';
 export * from './../../../AlkkagiShared/modules/logger.js';
