@@ -4,13 +4,15 @@ class ResourceBase {
     constructor() {
         this.id = 0;
         this.name = "";
+        this.desc = "";
         this.dict = {};
     }
 
     init(id, dict) {
         this.id = id;
-        this.dict = dict || {};
+        this.dict = dict || {};        
         this.name = this.getDictValue("Name", "");
+        this.desc = this.getDictValue("Desc", "");
     }
 
     hasDict(key) {
@@ -88,11 +90,11 @@ class ResourceBase {
             const norm = data.charCodeAt(0) === 0xFEFF ? data.slice(1) : data;
             root = JSON.parse(norm);
         } catch {
-            console.log(`[${ctor.name}] JSON parse error: ${fileName}`);
-            return;
+            throw new Error(`[${ctor.name}] JSON parse error`);
         }
 
-        if (clear) ctor.items.clear();
+        if (clear) 
+            ctor.items.clear();
 
         for (const idStr in root) {
             if (!Object.prototype.hasOwnProperty.call(root, idStr)) continue;
@@ -107,22 +109,18 @@ class ResourceBase {
                 try {
                     dict = JSON.parse(value);
                 } catch {
-                    console.log(`[${ctor.name}] Skip id=${id} (inner JSON parse error)`);
-                    continue;
+                    throw new Error(`[${ctor.name}] Skip id=${id} (inner JSON parse error)`);
                 }
             }
 
             if (!dict || typeof dict !== "object") {
-                console.log(`[${ctor.name}] Skip id=${id} (value is not an object)`);
-                continue;
+                throw new Error(`[${ctor.name}] Skip id=${id} (value is not an object)`);
             }
 
             const item = new ctor();
             item.init(id, dict);
             ctor.items.set(id, item);
         }
-
-        console.log(`[${ctor.name}] Loaded ${ctor.items.size} items from ${path.relative(baseDir, p)}.`);
     }
 }
 
