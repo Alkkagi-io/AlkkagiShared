@@ -7,7 +7,7 @@ class ResourceStat extends ResourceBase {
         this.icon = "";
         this.levelUpEffect = "";
         this.maxLevel = 0;
-        this.levelInfos = {};
+        this.levelValues = [];
     }
 
     init(id, dict) {
@@ -16,31 +16,14 @@ class ResourceStat extends ResourceBase {
         this.icon = this.getDictValue("Icon", "");
         this.levelUpEffect = this.getDictValue("LevelUpEffect", "");
         this.maxLevel = this.getDictValueInt("MaxLevel", 0);
-
-        const raw = this.getDictValue("Levels");
-        const baseInfo = raw["1"];
-        if (!baseInfo) 
-            throw new Error("Not exist level info exception");
-
-        this.levelInfos = {};
-        for (const [levelKey, dict] of Object.entries(raw)) {
-            const level = parseToInteger(levelKey);
-            this.levelInfos[level] = level === 1 ? { ...baseInfo } : { ...baseInfo, ...dict };
-        }
+        this.levelValues = this.getDictValue("LevelValues");
     }
 
-    getLevelValue(level, key) {
-        return this.levelInfos[level][key];
-    }
+    getLevelValue(level) {
+        if (level > this.maxLevel)
+            throw new Error('Invalid level exception');
 
-    getLevelValueInteger(level, key, defaultValue = 0) {
-        const n = parseToInteger(this.levelInfos[level][key]);
-        return Number.isFinite(n) ? n : defaultValue;
-    }
-
-    getLevelValueFloat(level, key, defaultValue = 0) {
-        const n = parseToFloat(this.levelInfos[level][key]);
-        return Number.isFinite(n) ? n : defaultValue;
+        return this.levelValues[level - 1];
     }
 }
 

@@ -72,6 +72,11 @@ class ResourceBase {
         return this.items.get(id);
     }
 
+    static getAll() {
+        this._ensureStore();
+        return this.items;
+    }
+
     static getWhere(pred) {
         this._ensureStore();
         const out = [];
