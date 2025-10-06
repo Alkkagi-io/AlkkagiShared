@@ -23,7 +23,7 @@ class ResourceStat extends ResourceBase {
         if (level > this.maxLevel)
             throw new Error('Invalid level exception');
 
-        return this.levelValues[level - 1];
+        return this.levelValues[level];
     }
 }
 
