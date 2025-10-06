@@ -1,26 +1,19 @@
-import { SerializableData } from "../Modules/SerializableData";
-import { Vector } from "../Modules/Vector";
+import { getBytesHeaderSize } from '../Modules/BufferHandle.js';
+import { SerializableData } from '../Modules/SerializableData.js';
+import { Vector } from '../Modules/Vector.js';
 
 class EntityData extends SerializableData {
-    constructor(entity) {
+    constructor(entityID, position) {
         super()
 
-        if(entity === undefined)
-        {
-            this.entityID = 0;
-            this.position = new Vector();
-        }
-        else
-        {
-            this.entityID = entity.entityID;
-            this.position = entity.position;
-        }
+        this.entityID = entityID;
+        this.position = position;
     }
 
-    getFlexiableSize() {
+    getFlexibleSize() {
         let size = 0;
         size += 2; // entityID uint16
-        size += this.position.getFlexiableSize(); // position
+        size += this.position.getFlexibleSize() + getBytesHeaderSize(); // position
         return size;
     }
 
@@ -34,3 +27,5 @@ class EntityData extends SerializableData {
         this.position = new Vector().deserialize(readHandle.readArrayBuffer());
     }
 }
+
+export { EntityData };

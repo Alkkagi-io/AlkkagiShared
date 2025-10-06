@@ -9,13 +9,13 @@ class VectorPacket extends Packet {
     }
 
     getPacketID() {
-        return EPacketID.VECTOR;
+        return EPacketID.Vector;
     }
 
-    getFlexiableSize() {
-        let size = super.getFlexiableSize();
+    getFlexibleSize() {
+        let size = super.getFlexibleSize();
 
-        size += this.vector.getFlexiableSize() + getBytesHeaderSize(); // vector + header
+        size += this.vector.getFlexibleSize() + getBytesHeaderSize(); // vector + header
 
         return size;
     }

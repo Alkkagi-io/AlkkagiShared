@@ -4,12 +4,12 @@ class SerializableData {
     constructor() {
     }
 
-    getFlexiableSize() {
+    getFlexibleSize() {
         throw new Error("Abstract method 'getFlexiableSize' must be implemented");
     }
 
     serialize() {
-        const buffer = new ArrayBuffer(this.getFlexiableSize());
+        const buffer = new ArrayBuffer(this.getFlexibleSize());
         const writeHandle = new BufferWriteHandle(buffer);
 
         this.onSerialize(writeHandle);

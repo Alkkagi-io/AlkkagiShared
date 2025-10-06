@@ -8,11 +8,11 @@ class MessagePacket extends Packet {
     }
 
     getPacketID() {
-        return EPacketID.MESSAGE;
+        return EPacketID.Message;
     }
 
-    getFlexiableSize() {
-        let size = super.getFlexiableSize();
+    getFlexibleSize() {
+        let size = super.getFlexibleSize();
 
         size += getFlexiableUTF8Size(this.message); // utf8 str (max 4 bytes)
 

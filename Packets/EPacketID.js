@@ -1,6 +1,7 @@
 const EPacketID = {
-    MESSAGE: 0,
-    VECTOR: 1,
+    Message: 0,
+    Vector: 1,
+    S2C_UpdateWorld: 2,
 }
 
 export { EPacketID };

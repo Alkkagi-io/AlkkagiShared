@@ -9,7 +9,7 @@ class Packet extends SerializableData {
         throw new Error("Abstract method 'getPacketID' must be implemented");
     }
 
-    getFlexiableSize() {
+    getFlexibleSize() {
         let size = 0;
         
         size += 1; // packetID
