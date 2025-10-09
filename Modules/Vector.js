@@ -7,6 +7,11 @@ class Vector extends SerializableData {
         this.y = y;
     }
 
+    set(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
     getFlexibleSize() {
         let size = 0;
 
