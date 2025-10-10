@@ -1,16 +1,16 @@
 import { parseToInteger, parseToFloat } from "./DataParseHelper.js";
 import { ResourceBase } from "./ResourceBase.js";
 
-const EStatType = {
+const ELevelStatType = {
     ADD_WEIGHT_PER: 1,
-    ADD_MAX_HP_PER: 2,
-    AUTO_HEAL_PER_MIN: 3,
-    ATK_COOLDOWN_PER: 4,
-    ADD_MAX_CHARGE_LEN_PER: 5,
-    ADD_MOVE_SPEED_PER: 6,
+    ADD_MAX_CHARGE_LEN_PER: 2,
+    ADD_MAX_HP_PER: 3,
+    ADD_MOVE_SPEED_PER: 4,
+    ATK_COOLDOWN_PER: 5,
+    AUTO_HEAL_PER_MIN: 6
 };
 
-class ResourceStat extends ResourceBase {
+class ResourceLevelStat extends ResourceBase {
     constructor() {
         super();
         this.icon = "";
@@ -36,4 +36,4 @@ class ResourceStat extends ResourceBase {
     }
 }
 
-export { ResourceStat, EStatType };
+export { ResourceLevelStat, ELevelStatType };
