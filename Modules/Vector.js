@@ -100,6 +100,14 @@ class Vector extends SerializableData {
     static divide(vector, value) {
         return new Vector(vector.x / value, vector.y / value);
     }
+
+    static dot(a, b) {
+        return a.x * b.x + a.y * b.y;
+    }
+
+    static cross(a, b) {
+        return a.x * b.y - a.y * b.x;
+    }
 }
 
 export { Vector };
