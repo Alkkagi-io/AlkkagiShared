@@ -13,3 +13,4 @@ export { S2C_EnterWorldPacket } from './S2C_EnterWorldPacket.js'
 export { C2S_MoveInputPacket } from './C2S_MoveInputPacket.js'
 export { C2S_StartAttackChargingPacket } from './C2S_StartAttackChargingPacket.js'
 export { C2S_FinishAttackChargingPacket } from './C2S_FinishAttackChargingPacket.js'
+export { C2S_BuyItemPacket } from './C2S_BuyItemPacket.js';

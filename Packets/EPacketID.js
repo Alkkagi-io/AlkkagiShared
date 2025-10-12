@@ -7,6 +7,7 @@ const EPacketID = {
     C2S_MoveInput: 5,
     C2S_StartAttackCharging: 6,
     C2S_FinishAttackCharging: 7,
+    C2S_BuyItem: 8
 };
 
 export { EPacketID };
