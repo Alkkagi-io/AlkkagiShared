@@ -22,5 +22,5 @@ export * from './../../../AlkkagiShared/Packets/VectorPacket.js';
 export * from './../../../AlkkagiShared/Packets/index.js';
 export * from './../../../AlkkagiShared/Resource/DataParseHelper.js';
 export * from './../../../AlkkagiShared/Resource/ResourceBase.js';
-export * from './../../../AlkkagiShared/Resource/ResourceLevelStat.js';
+export * from '../../Resource/ResourceStat.js';
 export * from './../../../AlkkagiShared/Resource/ResourceShopItem.js';
