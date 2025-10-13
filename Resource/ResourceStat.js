@@ -7,7 +7,7 @@ const EStatType = {
     MAX_HP: 3,
     MOVE_SPEED: 4,
     ATK_COOLTIME: 5,
-    AUTO_HEAL_PER_MIN: 6
+    AUTO_HEAL: 6
 };
 
 class ResourceStat extends ResourceBase {
