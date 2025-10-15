@@ -2,7 +2,7 @@ import { StatConfig } from "../../src/Stat/StatConfig.js";
 import { parseToInteger, parseToFloat } from "./DataParseHelper.js";
 import { ResourceBase } from "./ResourceBase.js";
 
-const ELevelUpType = {
+const EStatLevelUpType = {
     ADD_WEIGHT_PER: 1,
     ADD_MAX_CHARGE_LEN_PER: 2,
     ADD_MAX_HP_PER: 3,
@@ -11,7 +11,7 @@ const ELevelUpType = {
     AUTO_HEAL: 6
 };
 
-class ResourceLevelUp extends ResourceBase {
+class ResourceStatLevelUp extends ResourceBase {
     constructor() {
         super();
         this.icon = "";
@@ -37,27 +37,27 @@ class ResourceLevelUp extends ResourceBase {
     }
 
     isPercentage() {
-        return this.id !== ELevelUpType.AUTO_HEAL;
+        return this.id !== EStatLevelUpType.AUTO_HEAL;
     }
 
     static getByStatType(type) {
         switch (type) {
             case StatConfig.Type.WEIGHT:
-                return this.get(ELevelUpType.ADD_WEIGHT_PER);
+                return this.get(EStatLevelUpType.ADD_WEIGHT_PER);
             case StatConfig.Type.MAX_HP:
-                return this.get(ELevelUpType.ADD_MAX_HP_PER);
+                return this.get(EStatLevelUpType.ADD_MAX_HP_PER);
             case StatConfig.Type.ATK_COOLTIME:
-                return this.get(ELevelUpType.REDUCE_ATK_COOLTIME_PER);
+                return this.get(EStatLevelUpType.REDUCE_ATK_COOLTIME_PER);
             case StatConfig.Type.AUTO_HEAL:
-                return this.get(ELevelUpType.AUTO_HEAL);
+                return this.get(EStatLevelUpType.AUTO_HEAL);
             case StatConfig.Type.MAX_CHARGE_LEN:
-                return this.get(ELevelUpType.ADD_MAX_CHARGE_LEN_PER);
+                return this.get(EStatLevelUpType.ADD_MAX_CHARGE_LEN_PER);
             case StatConfig.Type.MOVE_SPEED:
-                return this.get(ELevelUpType.ADD_MOVE_SPEED_PER);
+                return this.get(EStatLevelUpType.ADD_MOVE_SPEED_PER);
             default:
                 return null;
         }
     }
 }
 
-export { ResourceLevelUp, ELevelUpType };
+export { ResourceStatLevelUp, EStatLevelUpType };
