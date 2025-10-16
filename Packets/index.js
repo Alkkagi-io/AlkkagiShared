@@ -14,3 +14,6 @@ export { C2S_MoveInputPacket } from './C2S_MoveInputPacket.js'
 export { C2S_StartAttackChargingPacket } from './C2S_StartAttackChargingPacket.js'
 export { C2S_FinishAttackChargingPacket } from './C2S_FinishAttackChargingPacket.js'
 export { C2S_BuyItemPacket } from './C2S_BuyItemPacket.js';
+export { S2C_CharacterLevelUpPacket } from './S2C_CharacterLevelUpPacket.js';
+export { C2S_CharacterStatLevelUpRequestPacket } from './C2S_CharacterStatLevelUpRequestPacket.js';
+export { S2C_CharacterStatLevelUpResponsePacket } from './S2C_CharacterStatLevelUpResponsePacket.js';
