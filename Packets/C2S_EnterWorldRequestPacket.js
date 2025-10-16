@@ -1,21 +1,21 @@
 import { getFlexiableUTF8Size } from '../Modules/BufferHandle.js';
 import { Packet, EPacketID } from "./index.js";
 
-class S2C_EnterWorldPacket extends Packet {
-    constructor(entityID = 0) {
+class C2S_EnterWorldRequestPacket extends Packet {
+    constructor(nickname) {
         super();
-        
-        this.entityID = entityID;
+
+        this.nickname = nickname;
     }
 
     getPacketID() {
-        return EPacketID.S2C_EnterWorld;
+        return EPacketID.C2S_EnterWorldRequest;
     }
 
     getFlexibleSize() {
         let size = super.getFlexibleSize();
 
-        size += 4 // entity ID (uint 32)
+        size += getFlexiableUTF8Size(this.nickname); // utf8 str (max 4 bytes)
 
         return size;
     }
@@ -23,14 +23,14 @@ class S2C_EnterWorldPacket extends Packet {
     onSerialize(writeHandle) {
         super.onSerialize(writeHandle);
 
-        writeHandle.writeUint32(this.entityID);
+        writeHandle.writeStringUTF8(this.nickname);
     }
 
     onDeserialize(readHandle) {
         super.onDeserialize(readHandle);
 
-        this.entityID = readHandle.readUint32();
+        this.nickname = readHandle.readStringUTF8();
     }
 }
 
-export { S2C_EnterWorldPacket };
+export { C2S_EnterWorldRequestPacket };
