@@ -1,12 +1,12 @@
 import { SerializableData } from './SerializableData.js';
 
 class Vector extends SerializableData {
-    static Zero = Object.freeze(new Vector(0, 0));
-    static One = Object.freeze(new Vector(1, 1));
-    static Up = Object.freeze(new Vector(0, 1));
-    static Down = Object.freeze(new Vector(0, -1));
-    static Left = Object.freeze(new Vector(-1, 0));
-    static Right = Object.freeze(new Vector(1, 0));
+    static get Zero() { return new Vector(0, 0); }
+    static get One() { return new Vector(1, 1); }
+    static get Up() { return new Vector(0, 1); }
+    static get Down() { return new Vector(0, -1); }
+    static get Left() { return new Vector(-1, 0); }
+    static get Right() { return new Vector(1, 0); }
 
     constructor(x = 0, y = 0) {
         super();

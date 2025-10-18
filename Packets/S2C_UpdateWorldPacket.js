@@ -1,14 +1,23 @@
 import { getBytesHeaderSize } from '../Modules/BufferHandle.js';
 import { Packet, EPacketID } from "./index.js";
-import { EntityData } from "../Datas/EntityData.js"
+import { EntityDataFactory } from "../Datas/index.js"
 
 class S2C_UpdateWorldPacket extends Packet {
     constructor(entities = []) {
         super();
 
         this.entityDatas = [];
+        this.entityDatasSize = 0;
         entities.forEach(entity => {
-            this.entityDatas.push(new EntityData(entity.entityID, entity.position));
+            const entityData = EntityDataFactory.createEntityData(entity.getEntityType(), entity);
+            if(entityData == null)
+                return;
+
+            this.entityDatasSize += entityData.getFlexibleSize();
+            this.entityDatasSize += getBytesHeaderSize(); // Bytes Size Header
+            this.entityDatasSize += 1; // EntityType Header (uint8)
+
+            this.entityDatas.push(entityData);
         });
     }
 
@@ -20,8 +29,7 @@ class S2C_UpdateWorldPacket extends Packet {
         let size = super.getFlexibleSize();
 
         size += 2; // entityDatas length (uint16)
-        if(this.entityDatas.length > 0)
-            size += (this.entityDatas[0].getFlexibleSize() + getBytesHeaderSize()) * this.entityDatas.length;
+        size += this.entityDatasSize;
 
         return size;
     }
@@ -31,7 +39,11 @@ class S2C_UpdateWorldPacket extends Packet {
 
         writeHandle.writeUint16(this.entityDatas.length);
         for(let i = 0; i < this.entityDatas.length; ++i)
-            writeHandle.writeArrayBuffer(this.entityDatas[i].serialize());
+        {
+            const entityData = this.entityDatas[i];
+            writeHandle.writeUint8(entityData.entityType);
+            writeHandle.writeArrayBuffer(entityData.serialize());
+        }
     }
 
     onDeserialize(readHandle) {
@@ -39,7 +51,16 @@ class S2C_UpdateWorldPacket extends Packet {
 
         const entityDatasLength = readHandle.readUint16();
         for(let i = 0; i < entityDatasLength; ++i)
-            this.entityDatas.push(new EntityData().deserialize(readHandle.readArrayBuffer()));
+        {
+            const entityType = readHandle.readUint8();
+            const entityData = EntityDataFactory.createEntityData(entityType, null);
+            if(entityData == null)
+                return;
+
+            entityData.deserialize(readHandle.readArrayBuffer());
+            entityData.entityType = entityType;
+            this.entityDatas.push(entityData);
+        }
     }
 }
 

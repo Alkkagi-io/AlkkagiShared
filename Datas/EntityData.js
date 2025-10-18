@@ -1,13 +1,15 @@
 import { getBytesHeaderSize } from '../Modules/BufferHandle.js';
 import { SerializableData } from '../Modules/SerializableData.js';
 import { Vector } from '../Modules/Vector.js';
+import { EEntityType } from './index.js';
 
 class EntityData extends SerializableData {
-    constructor(entityID, position) {
+    constructor(entity) {
         super()
 
-        this.entityID = entityID;
-        this.position = position;
+        this.entityType = entity?.getEntityType() ?? EEntityType.None; // do not serialize
+        this.entityID = entity?.getID() ?? 0;
+        this.position = entity?.position ?? new Vector();
     }
 
     getFlexibleSize() {

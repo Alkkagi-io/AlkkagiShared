@@ -1,2 +1,7 @@
 export { EntityData } from './EntityData.js'
 export { EMoveInput } from './EMoveInput.js'
+export { EEntityType } from './EEntityType.js'
+export { CharacterEntityData } from './CharacterEntityData.js'
+export { XPObjectEntityData } from './XPObjectEntityData.js'
+export { XPContainerEntityData } from './XPContainerEntityData.js'
+export { EntityDataFactory } from './EntityDataFactory.js'
