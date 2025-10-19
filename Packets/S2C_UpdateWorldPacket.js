@@ -3,9 +3,10 @@ import { Packet, EPacketID } from "./index.js";
 import { EntityDataFactory } from "../Datas/index.js"
 
 class S2C_UpdateWorldPacket extends Packet {
-    constructor(entities = []) {
+    constructor(elapsedMS = 0, entities = []) {
         super();
 
+        this.elapsedMS = elapsedMS;
         this.entityDatas = [];
         this.entityDatasSize = 0;
         entities.forEach(entity => {
@@ -28,6 +29,7 @@ class S2C_UpdateWorldPacket extends Packet {
     getFlexibleSize() {
         let size = super.getFlexibleSize();
 
+        size += 2; // elapsedMS (uint16)
         size += 2; // entityDatas length (uint16)
         size += this.entityDatasSize;
 
@@ -37,6 +39,7 @@ class S2C_UpdateWorldPacket extends Packet {
     onSerialize(writeHandle) {
         super.onSerialize(writeHandle);
 
+        writeHandle.writeUint16(this.elapsedMS);
         writeHandle.writeUint16(this.entityDatas.length);
         for(let i = 0; i < this.entityDatas.length; ++i)
         {
@@ -49,6 +52,7 @@ class S2C_UpdateWorldPacket extends Packet {
     onDeserialize(readHandle) {
         super.onDeserialize(readHandle);
 
+        this.elapsedMS = readHandle.readUint16();
         const entityDatasLength = readHandle.readUint16();
         for(let i = 0; i < entityDatasLength; ++i)
         {
