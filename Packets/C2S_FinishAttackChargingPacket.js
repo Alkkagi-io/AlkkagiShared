@@ -3,7 +3,7 @@ import { Packet, EPacketID } from "./index.js";
 import { Vector } from "../Modules/Vector.js";
 
 class C2S_FinishAttackChargingPacket extends Packet {
-    constructor(direction = Vector.Zero) {
+    constructor(direction = Vector.Zero()) {
         super();
 
         this.direction = direction;

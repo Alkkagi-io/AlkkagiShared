@@ -1,12 +1,12 @@
 import { SerializableData } from './SerializableData.js';
 
 class Vector extends SerializableData {
-    static get Zero() { return new Vector(0, 0); }
-    static get One() { return new Vector(1, 1); }
-    static get Up() { return new Vector(0, 1); }
-    static get Down() { return new Vector(0, -1); }
-    static get Left() { return new Vector(-1, 0); }
-    static get Right() { return new Vector(1, 0); }
+    static Zero() { return new Vector(0, 0); }
+    static One() { return new Vector(1, 1); }
+    static Up() { return new Vector(0, 1); }
+    static Down() { return new Vector(0, -1); }
+    static Left() { return new Vector(-1, 0); }
+    static Right() { return new Vector(1, 0); }
 
     constructor(x = 0, y = 0) {
         super();
@@ -76,6 +76,10 @@ class Vector extends SerializableData {
     }
 
     // -- static methods --
+
+    static equals(a, b) {
+        return a.x === b.x && a.y === b.y;
+    }
         
     static normalize(vector) {
         const length = vector.getMagnitude();
