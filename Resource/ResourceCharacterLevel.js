@@ -6,7 +6,7 @@ class ResourceCharacterLevel extends ResourceBase {
     constructor() {
         super();
         this.level = 0;
-        this.requiredXP = 0; // from prev level. !! NOT TOTAL XP !!
+        this.requiredXP = 0; // total required xp.
     }
 
     init(id, dict) {
