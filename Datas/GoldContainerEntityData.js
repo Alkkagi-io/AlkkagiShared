@@ -1,8 +1,8 @@
 import { EntityData } from './index.js';
 
-class XPObjectEntityData extends EntityData {
-    constructor(xpObject) {
-        super(xpObject);
+class GoldContainerEntityData extends EntityData {
+    constructor(goldContainer) {
+        super(goldContainer);
     }
 
     getFlexibleSize() {
@@ -19,4 +19,4 @@ class XPObjectEntityData extends EntityData {
     }
 }
 
-export { XPObjectEntityData };
+export { GoldContainerEntityData };

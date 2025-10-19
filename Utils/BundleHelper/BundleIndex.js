@@ -3,6 +3,7 @@ export * from './../../../AlkkagiShared/Datas/EEntityType.js';
 export * from './../../../AlkkagiShared/Datas/EMoveInput.js';
 export * from './../../../AlkkagiShared/Datas/EntityData.js';
 export * from './../../../AlkkagiShared/Datas/EntityDataFactory.js';
+export * from './../../../AlkkagiShared/Datas/GoldContainerEntityData.js';
 export * from './../../../AlkkagiShared/Datas/XPContainerEntityData.js';
 export * from './../../../AlkkagiShared/Datas/XPObjectEntityData.js';
 export * from './../../../AlkkagiShared/Datas/index.js';
