@@ -1,3 +1,4 @@
+import { getFlexiableUTF8Size } from '../Modules/BufferHandle.js';
 import { EntityData } from './index.js';
 
 class CharacterEntityData extends EntityData {
@@ -8,7 +9,7 @@ class CharacterEntityData extends EntityData {
 
     getFlexibleSize() {
         let size = super.getFlexibleSize();
-        size += this.getFlexiableUTF8Size(this.name) // name
+        size += getFlexiableUTF8Size(this.name) // name
         return size;
     }
 
