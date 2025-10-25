@@ -1,4 +1,4 @@
-import { EEntityType, CharacterEntityData, XPObjectEntityData, XPContainerEntityData, GoldContainerEntityData } from './index.js';
+import { EEntityType, CharacterEntityData, XPObjectEntityData, XPContainerEntityData, GoldContainerEntityData, PlayerEntityData } from './index.js';
 
 class EntityDataFactory {
     constructor() {
@@ -24,6 +24,7 @@ class EntityDataFactory {
     }
 }
 
+EntityDataFactory.on(EEntityType.Player, PlayerEntityData);
 EntityDataFactory.on(EEntityType.Character, CharacterEntityData);
 EntityDataFactory.on(EEntityType.XPObject, XPObjectEntityData);
 EntityDataFactory.on(EEntityType.XPContainer, XPContainerEntityData);

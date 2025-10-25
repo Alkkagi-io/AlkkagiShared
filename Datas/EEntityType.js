@@ -3,7 +3,8 @@ const EEntityType = {
     Character: 1,
     XPObject: 2,
     XPContainer: 3,
-    GoldContainer: 4
+    GoldContainer: 4,
+    Player: 5
 }
 
 export { EEntityType };
