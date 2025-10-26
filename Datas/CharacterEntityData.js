@@ -4,7 +4,7 @@ import { EntityData } from './EntityData.js';
 class CharacterEntityData extends EntityData {
     constructor(character) {
         super(character);
-        this.name = character.nickname ?? "";
+        this.name = character?.nickname ?? "";
     }
 
     getFlexibleSize() {
