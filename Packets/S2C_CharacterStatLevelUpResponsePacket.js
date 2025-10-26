@@ -1,9 +1,10 @@
 import { Packet, EPacketID } from "./index.js";
 
 class S2C_CharacterStatLevelUpResponsePacket extends Packet {
-    constructor(statLevel = 0, statPoint = 0) {
+    constructor(statType = EStatLevelUpType.ADD_WEIGHT_PER, statLevel = 0, statPoint = 0) {
         super();
         
+        this.statType = statType;
         this.statLevel = statLevel;
         this.statPoint = statPoint;
     }
@@ -15,6 +16,7 @@ class S2C_CharacterStatLevelUpResponsePacket extends Packet {
     getFlexibleSize() {
         let size = super.getFlexibleSize();
 
+        size += 1 // statType (uint 8)
         size += 1 // statLevel (uint 8)
         size += 1 // statPoint (uint 8)
 
@@ -24,6 +26,7 @@ class S2C_CharacterStatLevelUpResponsePacket extends Packet {
     onSerialize(writeHandle) {
         super.onSerialize(writeHandle);
 
+        writeHandle.writeUint8(this.statType);
         writeHandle.writeUint8(this.statLevel);
         writeHandle.writeUint8(this.statPoint);
     }
@@ -31,6 +34,7 @@ class S2C_CharacterStatLevelUpResponsePacket extends Packet {
     onDeserialize(readHandle) {
         super.onDeserialize(readHandle);
 
+        this.statType = readHandle.readUint8();
         this.statLevel = readHandle.readUint8();
         this.statPoint = readHandle.readUint8();
     }
