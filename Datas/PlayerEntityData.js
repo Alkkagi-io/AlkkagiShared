@@ -5,9 +5,9 @@ class PlayerEntityData extends CharacterEntityData {
     constructor(player) {
         super(player);
         this.entityType = EEntityType.Player;
-        this.level = player.levelComponent.level;
-        this.exp = player.levelComponent.xpAmount;
-        this.score = player.score;
+        this.level = player?.levelComponent?.level ?? 0;
+        this.exp = player?.levelComponent?.xpAmount ?? 0;
+        this.score = player?.score ?? 0;
     }
 
     getFlexibleSize() {
