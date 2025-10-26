@@ -1,16 +1,19 @@
 import { getBytesHeaderSize } from '../Modules/BufferHandle.js';
 import { Packet, EPacketID } from "./index.js";
-import { EntityDataFactory } from "../Datas/index.js"
+import { EEntityType, EntityDataFactory } from "../Datas/index.js"
 
 class S2C_UpdateWorldPacket extends Packet {
-    constructor(elapsedMS = 0, entities = []) {
+    constructor(elapsedMS = 0, entities = [], clientPlayerEntity = null) {
         super();
 
         this.elapsedMS = elapsedMS;
         this.entityDatas = [];
         this.entityDatasSize = 0;
         entities.forEach(entity => {
-            const entityData = EntityDataFactory.createEntityData(entity.getEntityType(), entity);
+            const entityData = entity == clientPlayerEntity ?
+                EntityDataFactory.createEntityData(EEntityType.Player, entity) :
+                EntityDataFactory.createEntityData(entity.getEntityType(), entity);
+                
             if(entityData == null)
                 return;
 

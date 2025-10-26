@@ -3,6 +3,7 @@ import { CharacterEntityData, EEntityType } from './index.js';
 class PlayerEntityData extends CharacterEntityData {
     constructor(player) {
         super(player);
+        this.entityType = EEntityType.Player;
         this.level = player.levelComponent.level;
         this.exp = player.levelComponent.xpAmount;
         this.score = player.score;
