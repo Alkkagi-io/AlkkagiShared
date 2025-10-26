@@ -1,7 +1,7 @@
 import { getBytesHeaderSize } from '../Modules/BufferHandle.js';
 import { SerializableData } from '../Modules/SerializableData.js';
 import { Vector } from '../Modules/Vector.js';
-import { EEntityType } from './index.js';
+import { EEntityType } from './EEntityType.js';
 
 class EntityData extends SerializableData {
     constructor(entity) {

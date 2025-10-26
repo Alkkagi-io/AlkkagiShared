@@ -1,4 +1,5 @@
-import { CharacterEntityData, EEntityType } from './index.js';
+import { CharacterEntityData } from './CharacterEntityData.js';
+import { EEntityType } from './EEntityType.js';
 
 class PlayerEntityData extends CharacterEntityData {
     constructor(player) {

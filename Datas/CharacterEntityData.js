@@ -1,5 +1,5 @@
 import { getFlexiableUTF8Size } from '../Modules/BufferHandle.js';
-import { EntityData } from './index.js';
+import { EntityData } from './EntityData.js';
 
 class CharacterEntityData extends EntityData {
     constructor(character) {
