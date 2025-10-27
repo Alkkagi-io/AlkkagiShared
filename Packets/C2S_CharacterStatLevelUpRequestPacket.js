@@ -9,7 +9,7 @@ class C2S_CharacterStatLevelUpRequestPacket extends Packet {
     }
 
     getPacketID() {
-        return EPacketID.C2S_CharacterStatLevelUp;
+        return EPacketID.C2S_CharacterStatLevelUpRequest;
     }
 
     getFlexibleSize() {

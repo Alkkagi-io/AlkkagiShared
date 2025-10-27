@@ -1,3 +1,4 @@
+import { EStatLevelUpType } from "../Resource/ResourceStatLevelUp.js";
 import { Packet, EPacketID } from "./index.js";
 
 class S2C_CharacterStatLevelUpResponsePacket extends Packet {
