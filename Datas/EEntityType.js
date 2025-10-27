@@ -4,7 +4,8 @@ const EEntityType = {
     XPObject: 2,
     XPContainer: 3,
     GoldContainer: 4,
-    Player: 5
+    Player: 5,
+    BotPlayer: 6
 }
 
 export { EEntityType };
