@@ -1,7 +1,8 @@
 import { getFlexiableUTF8Size } from '../Modules/BufferHandle.js';
 import { EntityData } from './EntityData.js';
+import { DamagableEntityData } from './DamagableEntityData.js';
 
-class CharacterEntityData extends EntityData {
+class CharacterEntityData extends DamagableEntityData {
     constructor(character) {
         super(character);
         this.name = character?.nickname ?? "";

@@ -1,6 +1,7 @@
 import { EntityData } from './index.js';
+import { DamagableEntityData } from './DamagableEntityData.js';
 
-class GoldContainerEntityData extends EntityData {
+class GoldContainerEntityData extends DamagableEntityData {
     constructor(goldContainer) {
         super(goldContainer);
     }

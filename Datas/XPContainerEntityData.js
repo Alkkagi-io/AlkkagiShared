@@ -1,6 +1,7 @@
 import { EntityData } from './index.js';
+import { DamagableEntityData } from './DamagableEntityData.js';
 
-class XPContainerEntityData extends EntityData {
+class XPContainerEntityData extends DamagableEntityData {
     constructor(xpContainer) {
         super(xpContainer);
     }

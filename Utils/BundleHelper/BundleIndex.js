@@ -1,4 +1,5 @@
 export * from './../../../AlkkagiShared/Datas/CharacterEntityData.js';
+export * from './../../../AlkkagiShared/Datas/DamagableEntityData.js';
 export * from './../../../AlkkagiShared/Datas/EEntityType.js';
 export * from './../../../AlkkagiShared/Datas/EMoveInput.js';
 export * from './../../../AlkkagiShared/Datas/EntityData.js';
