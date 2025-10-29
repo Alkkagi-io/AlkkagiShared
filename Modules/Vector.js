@@ -47,12 +47,14 @@ class Vector extends SerializableData {
     }
 
     normalize() {
-        const length = this.getMagnitude();
-        if(length === 0) 
+        const sqrMagnitude = this.getSqrMagnitude();
+        if(sqrMagnitude === 0) 
             return this;
 
-        this.x /= length;
-        this.y /= length;
+        const inv = 1 / Math.sqrt(sqrMagnitude);
+
+        this.x *= inv;
+        this.y *= inv;
         return this;
     }
 
@@ -87,11 +89,12 @@ class Vector extends SerializableData {
     }
         
     static normalize(vector) {
-        const length = vector.getMagnitude();
-        if(length === 0) 
+        const sqrMagnitude = vector.getSqrMagnitude();
+        if(sqrMagnitude === 0) 
             return new Vector(0, 0);
 
-        return new Vector(vector.x / length, vector.y / length);
+        const inv = 1 / Math.sqrt(sqrMagnitude);
+        return new Vector(vector.x * inv, vector.y * inv);
     }
 
     static add(a, b) {
