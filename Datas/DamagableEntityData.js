@@ -10,18 +10,18 @@ class DamagableEntityData extends EntityData {
 
     getFlexibleSize() {
         let size = super.getFlexibleSize();
-        size += 2; // hpPer (uint16)
+        size += 1; // hpPer (uint16)
         return size;
     }
 
     onSerialize(writeHandle) {
         super.onSerialize(writeHandle);
-        writeHandle.writeUint16(this.hpPer);
+        writeHandle.writeUint8(this.hpPer);
     }
 
     onDeserialize(readHandle) {
         super.onDeserialize(readHandle);
-        this.hpPer = readHandle.readUint16();
+        this.hpPer = readHandle.readUint8();
     }
 }
 
