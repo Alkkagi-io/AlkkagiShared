@@ -49,30 +49,35 @@ class Vector extends SerializableData {
     normalize() {
         const length = this.getMagnitude();
         if(length === 0) 
-            return;
+            return this;
 
         this.x /= length;
         this.y /= length;
+        return this;
     }
 
     add(vector) {
         this.x += vector.x;
         this.y += vector.y;
+        return this;
     }
 
     subtract(vector) {
         this.x -= vector.x;
         this.y -= vector.y;
+        return this;
     }
 
     multiply(value) {
         this.x *= value;
         this.y *= value;
+        return this;
     }
 
     divide(value) {
         this.x /= value;
         this.y /= value;
+        return this;
     }
 
     // -- static methods --
