@@ -7,7 +7,7 @@ class Random {
     }
 
     static insideUnitCircle() {
-        return this.direction().multiply(Math.random());
+        return Random.direction().multiply(Math.random());
     }
 
     static range(min, max) {
@@ -15,7 +15,7 @@ class Random {
     }
 
     static rangeInt(min, max) {
-        return Math.floor(this.range(min, max));
+        return Math.floor(Random.range(min, max));
     }
 }
 
