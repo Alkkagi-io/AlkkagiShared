@@ -17,3 +17,4 @@ export { C2S_BuyItemPacket } from './C2S_BuyItemPacket.js';
 export { S2C_CharacterLevelUpPacket } from './S2C_CharacterLevelUpPacket.js';
 export { C2S_CharacterStatLevelUpRequestPacket } from './C2S_CharacterStatLevelUpRequestPacket.js';
 export { S2C_CharacterStatLevelUpResponsePacket } from './S2C_CharacterStatLevelUpResponsePacket.js';
+export { S2C_UpdateRankingPacket } from './S2C_UpdateRankingPacket.js';

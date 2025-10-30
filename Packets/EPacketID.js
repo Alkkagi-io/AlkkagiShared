@@ -10,7 +10,8 @@ const EPacketID = {
     C2S_BuyItem: 8,
     S2C_CharacterLevelUp: 9,
     C2S_CharacterStatLevelUpRequest: 10,
-    S2C_CharacterStatLevelUpResponse: 11
+    S2C_CharacterStatLevelUpResponse: 11,
+    S2C_UpdateRankingPacket: 12
 };
 
 export { EPacketID };
