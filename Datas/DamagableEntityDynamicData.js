@@ -1,6 +1,6 @@
-import { EntityData } from "./EntityData.js";
+import { EntityDynamicData } from "./EntityDynamicData.js";
 
-class DamagableEntityData extends EntityData {
+class DamagableEntityDynamicData extends EntityDynamicData {
     constructor(entity) {
         super(entity);
         const healthComponent = entity?.healthComponent ?? undefined;
@@ -25,4 +25,4 @@ class DamagableEntityData extends EntityData {
     }
 }
 
-export { DamagableEntityData };
+export { DamagableEntityDynamicData };
