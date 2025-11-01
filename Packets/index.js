@@ -18,3 +18,5 @@ export { S2C_CharacterLevelUpPacket } from './S2C_CharacterLevelUpPacket.js';
 export { C2S_CharacterStatLevelUpRequestPacket } from './C2S_CharacterStatLevelUpRequestPacket.js';
 export { S2C_CharacterStatLevelUpResponsePacket } from './S2C_CharacterStatLevelUpResponsePacket.js';
 export { S2C_UpdateRankingPacket } from './S2C_UpdateRankingPacket.js';
+export { S2C_AddPlayerPacket } from './S2C_AddPlayerPacket.js';
+export { S2C_RemovePlayerPacket } from './S2C_RemovePlayerPacket.js';
