@@ -19,13 +19,13 @@ class CharacterEntityDynamicData extends DamagableEntityDynamicData {
     onSerialize(writeHandle) {
         super.onSerialize(writeHandle);
         writeHandle.writeArrayBuffer(this.position.serialize());
-        writeHandle.writeUint32(this.scale);
+        writeHandle.writeFloat32(this.scale);
     }
 
     onDeserialize(readHandle) {
         super.onDeserialize(readHandle);
         this.position = new Vector().deserialize(readHandle.readArrayBuffer());
-        this.scale = readHandle.readUint32();
+        this.scale = readHandle.readFloat32();
     }
 }
 
