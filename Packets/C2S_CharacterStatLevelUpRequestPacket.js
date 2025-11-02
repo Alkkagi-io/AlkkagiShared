@@ -2,7 +2,7 @@ import { EStatLevelUpType } from "../Resource/ResourceStatLevelUp.js";
 import { Packet, EPacketID } from "./index.js";
 
 class C2S_CharacterStatLevelUpRequestPacket extends Packet {
-    constructor(statLevelUpType = EStatLevelUpType.ADD_WEIGHT_PER) {
+    constructor(statLevelUpType = EStatLevelUpType.ADD_WEIGHT) {
         super();
         
         this.statLevelUpType = statLevelUpType;

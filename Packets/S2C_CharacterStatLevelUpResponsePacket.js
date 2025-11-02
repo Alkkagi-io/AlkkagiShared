@@ -2,7 +2,7 @@ import { EStatLevelUpType } from "../Resource/ResourceStatLevelUp.js";
 import { Packet, EPacketID } from "./index.js";
 
 class S2C_CharacterStatLevelUpResponsePacket extends Packet {
-    constructor(statType = EStatLevelUpType.ADD_WEIGHT_PER, statLevel = 0, statPoint = 0) {
+    constructor(statType = EStatLevelUpType.ADD_WEIGHT, statLevel = 0, statPoint = 0) {
         super();
         
         this.statType = statType;
