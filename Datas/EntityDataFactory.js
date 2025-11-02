@@ -5,6 +5,8 @@ import { DamagableEntityDynamicData } from './DamagableEntityDynamicData.js';
 import { PlayerEntityDynamicData } from './PlayerEntityDynamicData.js';
 import { CharacterEntityDynamicData } from './CharacterEntityDynamicData.js';
 import { CharacterEntityStaticData } from './CharacterEntityStaticData.js';
+import { XPObjectEntityStaticData } from './XPObjectEntityStaticData.js';
+import { XPContainerEntityStaticData } from './XPContainerEntityStaticData.js';
 
 class EntityDataFactory {
     static entityStaticDataFactories = { };
@@ -46,8 +48,8 @@ class EntityDataFactory {
     }
 }
 
-EntityDataFactory.on(EEntityType.XPObject, StaticEntityStaticData, null);
-EntityDataFactory.on(EEntityType.XPContainer, StaticEntityStaticData, DamagableEntityDynamicData);
+EntityDataFactory.on(EEntityType.XPObject, XPObjectEntityStaticData, null);
+EntityDataFactory.on(EEntityType.XPContainer, XPContainerEntityStaticData, DamagableEntityDynamicData);
 EntityDataFactory.on(EEntityType.GoldContainer, StaticEntityStaticData, DamagableEntityDynamicData);
 EntityDataFactory.on(EEntityType.Player, CharacterEntityStaticData, PlayerEntityDynamicData);
 EntityDataFactory.on(EEntityType.BotPlayer, CharacterEntityStaticData, CharacterEntityDynamicData);

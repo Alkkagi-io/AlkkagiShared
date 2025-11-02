@@ -9,6 +9,8 @@ export * from './../../../AlkkagiShared/Datas/EntityDynamicData.js';
 export * from './../../../AlkkagiShared/Datas/EntityStaticData.js';
 export * from './../../../AlkkagiShared/Datas/PlayerEntityDynamicData.js';
 export * from './../../../AlkkagiShared/Datas/StaticEntityStaticData.js';
+export * from './../../../AlkkagiShared/Datas/XPContainerEntityStaticData.js';
+export * from './../../../AlkkagiShared/Datas/XPObjectEntityStaticData.js';
 export * from './../../../AlkkagiShared/Datas/index.js';
 export * from './../../../AlkkagiShared/Modules/BufferHandle.js';
 export * from './../../../AlkkagiShared/Modules/EncodingUtility.js';
