@@ -8,7 +8,7 @@ class WorldPlayerData extends SerializableData {
         this.name = player?.nickname ?? "";
     }
 
-    etFlexibleSize() {
+    getFlexibleSize() {
         let size = 0;
         
         size += 4; // entityID;
