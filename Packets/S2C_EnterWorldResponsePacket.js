@@ -1,9 +1,10 @@
-import { getFlexiableUTF8Size } from '../Modules/BufferHandle.js';
+import { getBytesHeaderSize } from '../Modules/BufferHandle.js';
 import { WorldPlayerData } from '../Modules/WorldPlayerData.js';
 import { Packet, EPacketID } from "./index.js";
+import { Vector } from '../Modules/Vector.js';
 
 class S2C_EnterWorldResponsePacket extends Packet {
-    constructor(entityID = 0, worldPlayers = []) {
+    constructor(entityID = 0, worldPlayers = [], viewSize = new Vector()) {
         super();
         
         this.entityID = entityID;
@@ -11,6 +12,7 @@ class S2C_EnterWorldResponsePacket extends Packet {
         for (const player of worldPlayers) {
             this.worldPlayerData.push(new WorldPlayerData(player));
         }
+        this.viewSize = viewSize;
     }
 
     getPacketID() {
@@ -26,6 +28,8 @@ class S2C_EnterWorldResponsePacket extends Packet {
             size += data.getFlexibleSize();
         }
 
+        size += this.viewSize.getFlexibleSize() + getBytesHeaderSize(); // view size
+
         return size;
     }
 
@@ -37,6 +41,7 @@ class S2C_EnterWorldResponsePacket extends Packet {
         for (const data of this.worldPlayerData) {
             writeHandle.writeArrayBuffer(data.serialize());
         }
+        writeHandle.writeArrayBuffer(this.viewSize.serialize());
     }
 
     onDeserialize(readHandle) {
@@ -48,6 +53,7 @@ class S2C_EnterWorldResponsePacket extends Packet {
         for(let i = 0; i < length; i++) {
             this.worldPlayerData.push(new WorldPlayerData().deserialize(readHandle.readArrayBuffer()));
         }
+        this.viewSize = new Vector().deserialize(readHandle.readArrayBuffer());
     }
 }
 
