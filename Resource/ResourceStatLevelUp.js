@@ -1,4 +1,4 @@
-import { StatConfig } from "../../src/Stat/StatConfig.js";
+import { StatConfig } from "../Configs/StatConfig.js";
 import { parseToInteger, parseToFloat } from "./DataParseHelper.js";
 import { ResourceBase } from "./ResourceBase.js";
 

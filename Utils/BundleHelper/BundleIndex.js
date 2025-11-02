@@ -1,3 +1,4 @@
+export * from './../../../AlkkagiShared/Configs/StatConfig.js';
 export * from './../../../AlkkagiShared/Datas/CharacterEntityDynamicData.js';
 export * from './../../../AlkkagiShared/Datas/CharacterEntityStaticData.js';
 export * from './../../../AlkkagiShared/Datas/DamagableEntityDynamicData.js';
