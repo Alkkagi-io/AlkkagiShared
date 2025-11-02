@@ -37,7 +37,7 @@ class S2C_UpdateWorldPacket extends Packet {
     }
 
     _createEntityData(clientPlayerEntity, entity, factory) {
-        const entityType = entity == clientPlayerEntity ? EEntityType.Player : entity.getEntityType();
+        const entityType = (entity.entiyID == clientPlayerEntity.entityID) ? EEntityType.Player : entity.getEntityType();
         const entityData = factory(entityType, entity);
 
         if(entityData == null)
