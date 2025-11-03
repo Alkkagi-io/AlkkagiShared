@@ -3,6 +3,7 @@ import { EntityDynamicData } from './EntityDynamicData.js';
 import { StaticEntityStaticData } from './StaticEntityStaticData.js';
 import { DamagableEntityDynamicData } from './DamagableEntityDynamicData.js';
 import { PlayerEntityDynamicData } from './PlayerEntityDynamicData.js';
+import { PlayerEntityStaticData } from './PlayerEntityStaticData.js';
 import { CharacterEntityDynamicData } from './CharacterEntityDynamicData.js';
 import { CharacterEntityStaticData } from './CharacterEntityStaticData.js';
 import { XPObjectEntityStaticData } from './XPObjectEntityStaticData.js';
@@ -51,7 +52,7 @@ class EntityDataFactory {
 EntityDataFactory.on(EEntityType.XPObject, XPObjectEntityStaticData, null);
 EntityDataFactory.on(EEntityType.XPContainer, XPContainerEntityStaticData, DamagableEntityDynamicData);
 EntityDataFactory.on(EEntityType.GoldContainer, StaticEntityStaticData, DamagableEntityDynamicData);
-EntityDataFactory.on(EEntityType.Player, CharacterEntityStaticData, PlayerEntityDynamicData);
+EntityDataFactory.on(EEntityType.Player, PlayerEntityStaticData, PlayerEntityDynamicData);
 EntityDataFactory.on(EEntityType.BotPlayer, CharacterEntityStaticData, CharacterEntityDynamicData);
 
 export { EntityDataFactory };
