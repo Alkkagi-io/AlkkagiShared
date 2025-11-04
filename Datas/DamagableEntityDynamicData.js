@@ -10,7 +10,7 @@ class DamagableEntityDynamicData extends EntityDynamicData {
 
     getFlexibleSize() {
         let size = super.getFlexibleSize();
-        size += 1; // hpPer (uint16)
+        size += 1; // hpPer (uint8)
         return size;
     }
 

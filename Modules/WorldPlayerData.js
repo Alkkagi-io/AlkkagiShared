@@ -18,12 +18,12 @@ class WorldPlayerData extends SerializableData {
     }
 
     onSerialize(writeHandle) {
-        writeHandle.writeUint16(this.entityID);
+        writeHandle.writeUint32(this.entityID);
         writeHandle.writeStringUTF8(this.name);
     }
 
     onDeserialize(readHandle) {
-        this.entityID = readHandle.readUint16();
+        this.entityID = readHandle.readUint32();
         this.name = readHandle.readStringUTF8();
     }
 }

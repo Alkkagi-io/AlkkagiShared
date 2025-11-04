@@ -16,11 +16,11 @@ class EntityStaticData extends SerializableData {
     }
 
     onSerialize(writeHandle) {
-        writeHandle.writeUint16(this.entityID);
+        writeHandle.writeUint32(this.entityID);
     }
 
     onDeserialize(readHandle) {
-        this.entityID = readHandle.readUint16();
+        this.entityID = readHandle.readUint32();
     }
 }
 

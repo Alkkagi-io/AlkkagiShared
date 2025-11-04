@@ -20,8 +20,8 @@ class S2C_UpdateRankingPacket extends Packet {
     getFlexibleSize() {
         let size = super.getFlexibleSize();
 
-        size += 2; // rankingDataLength
-        size += this.rankingPlayerIds.length * 4; // id(2) + score(2)
+        size += 1; // rankingDataLength (uint8)
+        size += this.rankingPlayerIds.length * 6; // id(4) + score(2)
 
         return size;
     }
@@ -29,9 +29,9 @@ class S2C_UpdateRankingPacket extends Packet {
     onSerialize(writeHandle) {
         super.onSerialize(writeHandle);
 
-        writeHandle.writeUint16(this.rankingPlayerIds.length);
+        writeHandle.writeUint8(this.rankingPlayerIds.length);
         for(let i = 0; i < this.rankingPlayerIds.length; ++i) {
-            writeHandle.writeUint16(this.rankingPlayerIds[i]);
+            writeHandle.writeUint32(this.rankingPlayerIds[i]);
             writeHandle.writeUint16(this.rankingPlayerScores[i]);
         }
     }
@@ -39,9 +39,9 @@ class S2C_UpdateRankingPacket extends Packet {
     onDeserialize(readHandle) {
         super.onDeserialize(readHandle);
 
-        const rankingDataLength = readHandle.readUint16();
+        const rankingDataLength = readHandle.readUint8();
         for(let i = 0; i < rankingDataLength; ++i) {
-            const id = readHandle.readUint16();
+            const id = readHandle.readUint32();
             const score = readHandle.readUint16();
 
             this.rankingPlayerIds.push(id);
