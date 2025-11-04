@@ -8,12 +8,12 @@ const Type = {
 };
 
 const DefaultValue = {
-    [Type.WEIGHT]: 1,
+    [Type.WEIGHT]: 1.5,
     [Type.MAX_HP]: 100,
     [Type.ATK_COOLTIME]: 2,
     [Type.POWER]: 15,
-    [Type.MOVE_SPEED]: 3,
-    [Type.AUTO_HEAL]: 1
+    [Type.MOVE_SPEED]: 4,
+    [Type.AUTO_HEAL]: 3
 };
 
 export const StatConfig = { Type, DefaultValue };
