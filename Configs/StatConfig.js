@@ -13,7 +13,7 @@ const DefaultValue = {
     [Type.ATK_COOLTIME]: 2,
     [Type.POWER]: 15,
     [Type.MOVE_SPEED]: 3,
-    [Type.AUTO_HEAL]: 0
+    [Type.AUTO_HEAL]: 1
 };
 
 export const StatConfig = { Type, DefaultValue };
