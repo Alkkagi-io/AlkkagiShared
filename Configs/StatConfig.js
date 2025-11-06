@@ -11,7 +11,7 @@ const DefaultValue = {
     [Type.WEIGHT]: 1.5,
     [Type.MAX_HP]: 100,
     [Type.ATK_COOLTIME]: 2,
-    [Type.POWER]: 15,
+    [Type.POWER]: 20,
     [Type.MOVE_SPEED]: 4,
     [Type.AUTO_HEAL]: 0.5
 };
