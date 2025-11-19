@@ -4,7 +4,9 @@ const EEntityType = {
     XPContainer: 2,
     GoldContainer: 3,
     Player: 4,
-    BotPlayer: 5
+    BotPlayer: 5,
+    AbilityContainer: 6,
+    AbilityEvolutionContainer: 7
 }
 
 export { EEntityType };
