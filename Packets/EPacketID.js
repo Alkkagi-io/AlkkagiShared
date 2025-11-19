@@ -13,7 +13,9 @@ const EPacketID = {
     S2C_CharacterStatLevelUpResponse: 11,
     S2C_UpdateRankingPacket: 12,
     S2C_AddPlayerPacket: 13,
-    S2C_RemovePlayerPacket: 14
+    S2C_RemovePlayerPacket: 14,
+    S2C_AddBuffPacket: 15,
+    S2C_RemoveBuffPacket: 16
 };
 
 export { EPacketID };
