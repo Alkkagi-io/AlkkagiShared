@@ -15,7 +15,12 @@ const EPacketID = {
     S2C_AddPlayerPacket: 13,
     S2C_RemovePlayerPacket: 14,
     S2C_AddBuffPacket: 15,
-    S2C_RemoveBuffPacket: 16
+    S2C_RemoveBuffPacket: 16,
+    C2S_InteractAbilityContainerRequestPacket: 17,
+    S2C_InteractAbilityContainerResponsePacket: 18,
+    C2S_InteractAbilityEvolutionContainerRequestPacket: 19,
+    S2C_InteractAbilityEvolutionContainerResponsePacket: 20,
+    S2C_InformCharacterAbilityChangedPacket: 21
 };
 
 export { EPacketID };

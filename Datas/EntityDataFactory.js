@@ -54,5 +54,7 @@ EntityDataFactory.on(EEntityType.XPContainer, XPContainerEntityStaticData, Damag
 EntityDataFactory.on(EEntityType.GoldContainer, StaticEntityStaticData, DamagableEntityDynamicData);
 EntityDataFactory.on(EEntityType.Player, PlayerEntityStaticData, PlayerEntityDynamicData);
 EntityDataFactory.on(EEntityType.BotPlayer, CharacterEntityStaticData, CharacterEntityDynamicData);
+EntityDataFactory.on(EEntityType.AbilityContainer, StaticEntityStaticData, null);
+EntityDataFactory.on(EEntityType.AbilityEvolutionContainer, StaticEntityStaticData, null);
 
 export { EntityDataFactory };
