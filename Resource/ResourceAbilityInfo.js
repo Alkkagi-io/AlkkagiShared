@@ -27,7 +27,7 @@ class ResourceAbilityInfo extends ResourceBase {
                 this._entryAbilityInfos.push(abilityInfo);
             }
 
-            const trailingAbilities = this._trailingAbilityInfosMap.get(abilityInfo.precedingAbilityID);
+            let trailingAbilities = this._trailingAbilityInfosMap.get(abilityInfo.precedingAbilityID);
             if(trailingAbilities == null) {
                 trailingAbilities = [];
                 this._trailingAbilityInfosMap.set(abilityInfo.precedingAbilityID, trailingAbilities);
