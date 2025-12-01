@@ -17,7 +17,7 @@ class C2S_EnterWorldRequestPacket extends Packet {
         let size = super.getFlexibleSize();
 
         size += getFlexiableUTF8Size(this.nickname); // utf8 str (max 4 bytes)
-        size += getUint8Size(this.isMobile);
+        size += 1; // isMobile (uint8)
 
         return size;
     }
